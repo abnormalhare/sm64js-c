@@ -35,27 +35,27 @@ $(eval $(call validate-option,COMPILER,ido gcc))
 VERSION ?= us
 $(eval $(call validate-option,VERSION,jp us eu sh))
 
-ifeq      ($(VERSION),jp)
-  DEFINES   += VERSION_JP=1
-  OPT_FLAGS := -g
-  GRUCODE   ?= f3d_old
-  VERSION_JP_US  ?= true
-else ifeq ($(VERSION),us)
+# ifeq      ($(VERSION),jp)
   DEFINES   += VERSION_US=1
   OPT_FLAGS := -g
   GRUCODE   ?= f3d_old
   VERSION_JP_US  ?= true
-else ifeq ($(VERSION),eu)
-  DEFINES   += VERSION_EU=1
-  OPT_FLAGS := -O2
-  GRUCODE   ?= f3d_new
-  VERSION_JP_US  ?= false
-else ifeq ($(VERSION),sh)
-  DEFINES   += VERSION_SH=1
-  OPT_FLAGS := -O2
-  GRUCODE   ?= f3d_new
-  VERSION_JP_US  ?= false
-endif
+# else ifeq ($(VERSION),us)
+#   DEFINES   += VERSION_US=1
+#   OPT_FLAGS := -g
+#   GRUCODE   ?= f3d_old
+#   VERSION_JP_US  ?= true
+# else ifeq ($(VERSION),eu)
+#  DEFINES   += VERSION_EU=1
+#  OPT_FLAGS := -O2
+#  GRUCODE   ?= f3d_new
+#  VERSION_JP_US  ?= false
+#else ifeq ($(VERSION),sh)
+#  DEFINES   += VERSION_SH=1
+#  OPT_FLAGS := -O2
+#  GRUCODE   ?= f3d_new
+#  VERSION_JP_US  ?= false
+#endif
 
 TARGET := sm64.$(VERSION)
 
